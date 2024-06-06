@@ -1,6 +1,6 @@
-.PHONY: all build run clear
+.PHONY: all build run clean
 
-all: build run clear
+all: build run clean
 
 build:
 	@go build -o=cfr cfr.go
@@ -8,5 +8,5 @@ build:
 run: build
 	@./cfr
 
-clear:
-	@rm -f cfr 
+clean:
+	@rm -f cfr
