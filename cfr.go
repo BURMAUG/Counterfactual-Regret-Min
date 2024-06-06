@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // Action profile.
 const (
 	ROCK        = 0
@@ -36,8 +34,4 @@ func (p *Player) Action(strategy []byte) {
 
 // PlayerPayOffs is a function that should map player action to player payoff
 func (p *Player) PlayerPayOffs(p1, p2 *Player) {
-}
-
-func main() {
-	fmt.Print("Burmau Garba")
 }
