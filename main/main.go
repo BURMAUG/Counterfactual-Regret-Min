@@ -7,5 +7,5 @@ import (
 
 func main() {
 	p1 := cfr.NewPlay()
-	fmt.Print(p1)
+	fmt.Print(p1.Strategy())
 }

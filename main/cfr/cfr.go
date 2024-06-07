@@ -1,3 +1,4 @@
+// Over multiple iterations I need to add up my regrets
 package cfr
 
 // Action profile.
@@ -8,16 +9,16 @@ const (
 	NUM_ACTIONS = 3 // This is the number of actions a player can play in a given game
 )
 
-// Regret matching and minimization
-const ()
-
 type Actions interface {
-	Strategy() int
+	Strategy() []int
 	Action(strategy []byte) int // This should return a players Strategy
 }
 
 // Player is a structure that takes the player form.
 type Player struct {
+	strategy    [NUM_ACTIONS]int
+	regretSum   [NUM_ACTIONS]int
+	strategySum [NUM_ACTIONS]int
 }
 
 // Return a new Player object pointer
@@ -26,13 +27,24 @@ func NewPlay() *Player {
 }
 
 // Strategy
-func (p *Player) Strategy() int {
-	return ROCK
+func (p *Player) Strategy() []int {
+	normalizedStrategy := 0
+	for a := 0; a < NUM_ACTIONS; a++ {
+		if p.strategy[a] > 0 {
+			p.strategy[a] = p.regretSum[a]
+		} else {
+			p.strategy[a] = 0
+		}
+		normalizedStrategy += p.strategy[a]
+	}
+
+	for a := 0; a < NUM_ACTIONS; a++ {
+	}
+	return p.strategy[:]
 }
 
 // Action
-func (p *Player) Action(strategy []byte) {
-
+func (p *Player) Action(strategy []int) {
 }
 
 // PlayerPayOffs is a function that should map player action to player payoff
