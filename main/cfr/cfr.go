@@ -51,16 +51,17 @@ func (p *Player) Action(strategy []int) {
 
 // PlayerPayOffs is a function that should map player action to player payoff
 // in order for me to know the payoff for p1 in need to know what move p1 made and what move p2 made.
+// this is sort of like a compare method
 func (p *Player) PlayerPayOffs(p1, p2 *Player) {
 	// p1.Play(ROCK) and p2.Play(PAPER) -1 1
 	// p1.Play(ROCK) and p2.Play(SCISSORS) 1 -1
 	// p1.Play(ROCK) and p2.Play(ROCK) 0 0
 
-	// p1.Play(PAPER) and p2.Play(PAPER)
-	// p1.Play(PAPER) and p2.Play(PAPER)
-	// p1.Play(PAPER) and p2.Play(PAPER)
+	// p1.Play(PAPER) and p2.Play(PAPER) 0 0
+	// p1.Play(PAPER) and p2.Play(SCISSORS) 1 -1
+	// p1.Play(PAPER) and p2.Play(ROCK) -1 1
 
-	// p1.Play(ROCK) and p2.Play(PAPER)
-	// p1.Play(ROCK) and p2.Play(PAPER)
-	// p1.Play(ROCK) and p2.Play(PAPER)
+	// p1.Play(SCISSORS) and p2.Play(PAPER) 1 -1
+	// p1.Play(SCISSORS) and p2.Play(ROCK) -1 1
+	// p1.Play(SCISSORS) and p2.Play(SCISSOR) 0 0
 }
